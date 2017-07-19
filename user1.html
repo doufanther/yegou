@@ -26,16 +26,16 @@
     <script>
       /* global Vue, Wilddog */
      
-		var userId=01;
-			
-     var itemsRef=  new Wilddog('https://zaxsc.wilddogio.com/'+userId+'/');
+		
+			var userId=01;
+      var itemsRef=  new Wilddog('https://zaxsc.wilddogio.com/'+userId+'/');
      
     	
     new Vue({
         el: '#app',
         data: {
           newTodo: '',
-          uId:'',
+          uId:'01',
         },
         wilddog: {
           items: itemsRef.limitToLast(25)

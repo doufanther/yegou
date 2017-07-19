@@ -37,8 +37,9 @@
         created(){
         	itemsRef.on('child_added', function(data) {
 //					alert('你有新消息');
-  				console.log(data.val());
-			});
+						var aa=data.val();
+						console.log(aa);
+					});
         },
         methods: {
           removeTodo: function (key) {
