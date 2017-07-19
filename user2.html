@@ -2,14 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>admin</title>
+    <title>index2</title>
     <script src="https://cdn.wilddog.com/sdk/js/current/wilddog.js"></script>
     <script src="https://cdn.jsdelivr.net/vue/1.0.20/vue.js"></script>
     <script src="js/wildvue.js"></script>
   </head>
   <body>
-	<div id="app">
-		
+
+    <div id="app">
+    	
       <ul>
         <li v-for="item in items" track-by=".key">
           {{ item.text }}
@@ -21,24 +22,22 @@
         <button>Add #{{ items.length }}</button>
       </form>
     </div>
-
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script>
       /* global Vue, Wilddog */
-      var itemsRef = new Wilddog('https://zaxsc.wilddogio.com/')
+     
+			var userId=02;
 			
-      new Vue({
+     var itemsRef=  new Wilddog('https://zaxsc.wilddogio.com/'+userId+'/');
+    	
+    new Vue({
         el: '#app',
         data: {
-          newTodo: ''
+          newTodo: '',
+          uId:'',
         },
         wilddog: {
           items: itemsRef.limitToLast(25)
-        },
-        created(){
-        	itemsRef.on('child_added', function(data) {
-//					alert('你有新消息');
-  				console.log(data.val());
-			});
         },
         methods: {
           removeTodo: function (key) {
@@ -47,8 +46,10 @@
           addTodo: function () {
             if (this.newTodo.trim()) {
               itemsRef.push({
-                text: this.newTodo
+                text: this.newTodo,
+                uId:this.uId
               })
+              
               this.newTodo = ''
             }
           }

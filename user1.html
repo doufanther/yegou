@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>index</title>
+    <title>index1</title>
     <script src="https://cdn.wilddog.com/sdk/js/current/wilddog.js"></script>
     <script src="https://cdn.jsdelivr.net/vue/1.0.20/vue.js"></script>
     <script src="js/wildvue.js"></script>
@@ -10,11 +10,7 @@
   <body>
 
     <div id="app">
-    	<div>
-    		<p>请先输入你的名字拼音然后再发送消息</p>
-    		<input type="text" id="name"/>
-    		<input type="button" value="确定" id="btn"/>
-    	</div>
+    	
       <ul>
         <li v-for="item in items" track-by=".key">
           {{ item.text }}
@@ -30,15 +26,10 @@
     <script>
       /* global Vue, Wilddog */
      
+		var userId=01;
+			
+     var itemsRef=  new Wilddog('https://zaxsc.wilddogio.com/'+userId+'/');
      
-     var url;
-     var itemsRef;
-     $("#btn").on('click',function(){
-     			var name=$("#name").val();
-     			console.log(name);
-     			itemsRef=  new Wilddog('https://zaxsc.wilddogio.com/'+name+'/');
-     })
-      console.log(itemsRef);
     	
     new Vue({
         el: '#app',
